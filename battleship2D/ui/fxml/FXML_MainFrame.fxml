@@ -25,6 +25,7 @@
                 </VBox>
             </bottom> 
        </BorderPane> 
+       
        </children>            
  </AnchorPane>
         

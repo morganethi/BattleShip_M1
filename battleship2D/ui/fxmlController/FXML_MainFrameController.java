@@ -27,7 +27,6 @@ import battleship2D.model.Coord2D;
 import battleship2D.model.Direction;
 import battleship2D.model.Fleet;
 import battleship2D.model.Ship;
-import battleship2D.ui.EndGame;
 import battleship2D.ui.Explosion;
 import battleship2D.ui.MainFrame;
 import battleship2D.ui.Missile;
@@ -35,6 +34,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 /**
  * FXML Controller class
  *
@@ -69,6 +69,18 @@ public class FXML_MainFrameController implements Initializable {
     @FXML
     private FXML_MessagesController msgController;
     
+    @FXML
+    private Pane endGame;
+    
+    @FXML 
+    private FXML_EndGameController endGameController;
+    
+    @FXML 
+    private Pane explosion;
+    
+    @FXML 
+    private FXML_ExplosionController explosionController;
+    
     
     /** Current game stage */
     private GameStages gameStage;
@@ -76,13 +88,11 @@ public class FXML_MainFrameController implements Initializable {
     private PropertyChangeListener propertyChangeListener;
     /** Opponents turns */
     private Turn turn;/** End game animation */
-    //private final EndGame endGame;
-    private EndGame endGame;
+    
     /** Missiles sent by boards */
     private  Missile missile;
     
-    /** Explosion image and animation */
-    private  Explosion explosion; 
+    
     
         /** Coordinates linking the (player-selected or computer-selected) target 
      * and the missile trajectory endpoints */
@@ -100,17 +110,16 @@ public class FXML_MainFrameController implements Initializable {
         this.shipInsertionController.construct(this.playerController.getBoardModel().getFleet());
         this.computerController.construct("Computer", new BoardModel(CellType.UNKNOWN), 
                 false, Config.level);
-        
         //init    
         
         this.missile = new Missile();       
-        this.explosion = new Explosion(20,20);         
-        this.endGame = null;
+        //this.explosionController.construct(20,20);      
+        
         initRoot();
         initListener();
         initPlayerBoard();        
         initShipSelection(); 
-        initExplosion();
+       // initExplosion();
         
         this.missileSourceX = new SimpleDoubleProperty(0);
         this.missileSourceY = new SimpleDoubleProperty(0);
@@ -333,7 +342,7 @@ public class FXML_MainFrameController implements Initializable {
      * @see MainFrame()
      */
     private void initExplosion() {
-        this.explosion.setVisible(false);
+      //  this.explosion.setVisible(false);
     }
     
     
@@ -374,7 +383,7 @@ public class FXML_MainFrameController implements Initializable {
                         if (destCellUI.isLastHitAShip()) {
                             ShipType shipType = CellType.cellTypeToShipType(destCellUI.getLastHit());
                             this.computerController.getBoardModel().getFleet().updateHits(shipType);
-                            showExplosion(computerController);
+                            showExplosion(this.computerController);
                             displayLastHitInfo(this.computerController, shipType);                            
                         }
                         this.turn = Turn.COMPUTER;            
@@ -405,7 +414,7 @@ public class FXML_MainFrameController implements Initializable {
         player.prefWidthProperty().bind(root.widthProperty().divide(2));
         computer.prefWidthProperty().bind(root.widthProperty().divide(2));
         this.root.getChildren().addAll(missile.getRoot());
-        this.root.getChildren().addAll(this.explosion);
+        //this.root.getChildren().addAll(this.explosion);
     }
     
     /**
@@ -424,7 +433,7 @@ public class FXML_MainFrameController implements Initializable {
      * @see changeState()
      */    
     private void launchMissiles(FXML_BordUIController destBoardUI, FXML_BordUIController sourceBoardUI) { 
-        this.explosion.stop();        
+       // this.explosionController.stop();        
         CellUI destCellUI = destBoardUI.getMissileDestination();
         CellUI sourceCellUI = sourceBoardUI.getMissileSource();
         
@@ -503,7 +512,7 @@ public class FXML_MainFrameController implements Initializable {
      * @param playerWins - true if the player has won the game, false otherwise
      */
     private void runEndGame(Boolean playerWins) {        
-        this.endGame = new EndGame(playerWins);
+        this.endGameController.construct(playerWins);
         initEndGame();   
         
         /* Waits for 2.5s before displaying the end game animation, in order to see the last (piece of) ship explosion. */
@@ -512,7 +521,7 @@ public class FXML_MainFrameController implements Initializable {
         } catch (InterruptedException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.endGame.start(); 
+        this.endGameController.start(); 
     }
     
     /**
@@ -537,16 +546,13 @@ public class FXML_MainFrameController implements Initializable {
     private void showExplosion(FXML_BordUIController boardUI) {
         /* missileDestX and missileDestY represent the center of the hit cell */
         /* To reach the top-left position of the animation, we subtract half its width and height */        
-        CellUI cellUI = boardUI.getMissileDestination();
+       /* CellUI cellUI = boardUI.getMissileDestination();
         if((cellUI != null) && (cellUI.getCellModel().getCellType() == CellType.HIT)) {            
             
-            this.explosion.translateXProperty().bind(this.missileDestX.subtract(cellUI.widthProperty().divide(2)));                        
-            this.explosion.translateYProperty().bind(this.missileDestY.subtract(cellUI.heightProperty().divide(2)));                
+           // this.explosionController.binding(this.missileDestX, this.missileDestY, cellUI);
             
-            this.explosion.prefWidthProperty().bind(cellUI.widthProperty()); // calls explosion.layoutChildren();
-            this.explosion.prefHeightProperty().bind(cellUI.heightProperty()); // calls explosion.layoutChildren();
             
-            this.explosion.start();
-        }            
+           // this.explosionController.start();
+        }    */        
     }
    }

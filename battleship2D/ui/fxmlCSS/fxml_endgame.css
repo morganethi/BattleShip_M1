@@ -4,5 +4,5 @@
 
 .mainFxmlClass {
     -fx-background-size:cover; 
-    -fx-background-image: url(\"battleship2D/pictures/battleship-endgame.png\");
+    -fx-background-image:url("../../pictures/battleship-endgame.png");
 }
