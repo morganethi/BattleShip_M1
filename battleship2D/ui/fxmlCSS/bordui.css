@@ -1,0 +1,9 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+-fx-border-width: 5;
+-fx-border-color: white;
+-fx-background-color: darkblue;
+}

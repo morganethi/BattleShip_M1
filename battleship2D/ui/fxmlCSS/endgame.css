@@ -1,0 +1,8 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    -fx-background-size:cover; 
+    -fx-background-image:url("../../pictures/battleship-endgame.png");
+}

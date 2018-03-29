@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="battleship2D.ui.fxmlController.MainFrameController">
+    
+    <children>
+    
+        <BorderPane fx:id="borderPane" AnchorPane.topAnchor="0d" AnchorPane.bottomAnchor="0d" AnchorPane.rightAnchor="0d" AnchorPane.leftAnchor="0d">
+            
+            <top>
+                <fx:include source="Title.fxml" fx:id="titre"/>
+            </top>
+            
+            <center>
+                <HBox  fx:id="center">
+                    <fx:include source="BoardUIPlayer.fxml"  fx:id="player"/>
+                    <fx:include source="BoardUIComputer.fxml"  fx:id="computer"/>
+                </HBox>
+            </center>  
+             
+            <bottom>
+                <VBox  fx:id="bottom">
+                    <fx:include source="ShipInsertion.fxml"  fx:id="shipInsertion"/>
+                    <fx:include source="Messages.fxml"  fx:id="msg"/>   
+                </VBox>
+            </bottom> 
+            
+       </BorderPane> 
+       
+       </children>  
+                 
+ </AnchorPane>
+        
+

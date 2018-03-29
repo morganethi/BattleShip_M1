@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package battleship2D.ui.fxml;
 
 import battleship2D.ui.GameStages;
-import battleship2D.ui.fxmlController.FXML_MainFrameController;
+import battleship2D.ui.fxmlController.MainFrameController;
 import java.io.IOException;
-import java.net.URL;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -16,10 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Jeremy
- */
+
 public class FXML_BattleShip2D extends Application   {
     /*=========================================================================*/
     /* Members                                                                 */       
@@ -35,29 +26,26 @@ public class FXML_BattleShip2D extends Application   {
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        try {
-      // Localisation du fichier FXML.
-      final URL url = getClass().getResource("./FXML_MainFrame.fxml");
-      // Création du loader.
-      final FXMLLoader fxmlLoader = new FXMLLoader(url);
-      // Chargement du FXML.
-      root = (Pane) fxmlLoader.load();
-      // config du controller
-      ((FXML_MainFrameController)fxmlLoader.getController()).changeState(GameStages.PLACE_SHIPS_ON_PLAYER_BOARD); 
-      
-        
-      // Création de la scène.;
-    } catch (IOException ex) {
-      System.err.println("Erreur au chargement: " + ex);
-    }   
-        
-       
+     
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("./MainFrame.fxml"));
+         
+         try {
+            root = (Pane) fxmlLoader.load();
+         }
+         catch(IOException ioe) {
+            System.err.println("Erreur au chargement du FXML dans BattelShip2D");
+            ioe.printStackTrace();
+         }
+         
+       //On configure le controller
+      ((MainFrameController)fxmlLoader.getController()).changeState(GameStages.PLACE_SHIPS_ON_PLAYER_BOARD); 
+       //====================================================
         Scene scene = new Scene(FXML_BattleShip2D.root, 900,600);
         primaryStage.setScene(scene);
-        primaryStage.show();        
+        primaryStage.show();          
     }
     
-
+    
     /**
      * @param args the command line arguments
      */
