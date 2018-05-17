@@ -28,11 +28,14 @@ import battleship2D.model.Direction;
 import battleship2D.model.Fleet;
 import battleship2D.model.Ship;
 import battleship2D.ui.Missile;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class MainFrameController implements Initializable {
     /*=========================================================================*/
@@ -90,6 +93,8 @@ public class MainFrameController implements Initializable {
     /** Missiles sent by boards */
     private  Missile missile;
     
+    private MediaPlayer theme;
+    
     
     
         /** Coordinates linking the (player-selected or computer-selected) target 
@@ -101,6 +106,11 @@ public class MainFrameController implements Initializable {
     /*=========================================================================*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
+        this.theme = new MediaPlayer(new Media((new File("battleship2D/data/Spice Girls - Wannabe (Haschak Sisters Cover).mp3")).toURI().toString()));
+        theme.setCycleCount(MediaPlayer.INDEFINITE);
+        theme.play();
         
         playerController.construct("Player", new BoardModel(CellType.OCEAN), true);
         this.shipInsertionController.construct(this.playerController.getBoardModel().getFleet());
@@ -328,7 +338,7 @@ public class MainFrameController implements Initializable {
         this.endGame.prefWidthProperty().bind(this.borderPane.widthProperty()); 
         this.endGame.prefHeightProperty().bind(this.borderPane.heightProperty());
         this.endGame.setVisible(false);
-        this.root.getChildren().addAll(this.endGame);
+        //this.root.getChildren().addAll(this.endGame);
     }
     /*=========================================================================*/
     /**
@@ -552,4 +562,5 @@ public class MainFrameController implements Initializable {
             this.explosionController.start();
         }           
     }
+    
    }

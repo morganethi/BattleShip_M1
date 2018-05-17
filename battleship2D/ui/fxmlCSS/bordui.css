@@ -4,6 +4,6 @@
 
 .mainFxmlClass {
 -fx-border-width: 5;
--fx-border-color: white;
--fx-background-color: darkblue;
+-fx-border-color: pink;
+-fx-background-color: #ffcccc;
 }

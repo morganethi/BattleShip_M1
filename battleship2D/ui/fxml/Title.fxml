@@ -13,15 +13,15 @@
     
     <children>
         
-        <StackPane style="-fx-background-color: black" >
-            <Text text="BattleShip" stroke="WHITE"  StackPane.alignment="CENTER_RIGHT">
+        <StackPane style="-fx-background-color: pink" >
+            <Text text="Grill Power " stroke="WHITE"  StackPane.alignment="CENTER_RIGHT">
                 <font>
                     <Font name="null" size="18.0" />
                 </font>
             </Text>
         </StackPane>
         
-       <Text text="2D" TilePane.alignment="CENTER_LEFT">
+       <Text text="BattleShip 2D" TilePane.alignment="CENTER_LEFT">
             <font>
                 <Font name="null" size="18.0" />
             </font>

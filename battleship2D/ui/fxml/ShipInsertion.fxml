@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox fx:id="root" alignment="TOP_CENTER"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="battleship2D.ui.fxmlController.ShipInsertionController">
+<HBox fx:id="root" alignment="TOP_CENTER"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="battleship2D.ui.fxmlController.ShipInsertionController" style="-fx-background-color : #ff9999">
     
     <children>
         

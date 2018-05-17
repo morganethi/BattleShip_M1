@@ -8,6 +8,7 @@ import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Sphere;
@@ -107,8 +108,10 @@ public class Missile {
     private void init() {
         this.root = new Group();  
 
-	Sphere sphere = new Sphere(10);
-	initSphere(sphere);
+	/*Sphere sphere = new Sphere(10);
+	initSphere(sphere);*/
+        
+        ImageView sphere = new ImageView("battleship2D/pictures/coeur.png");
         this.root.getChildren().addAll(sphere);
         
 	ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(1));       
@@ -153,7 +156,7 @@ public class Missile {
      * @see init()
      */
     private void initSphere(Sphere sphere) {        
-        sphere.setMaterial(new PhongMaterial(Color.ORANGE));
+        sphere.setMaterial(new PhongMaterial(Color.PINK));
         sphere.translateXProperty().setValue(0);
     }
 

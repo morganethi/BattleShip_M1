@@ -2,12 +2,15 @@ package battleship2D.ui.fxml;
 
 import battleship2D.ui.GameStages;
 import battleship2D.ui.fxmlController.MainFrameController;
+import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 
@@ -37,6 +40,7 @@ public class BattleShip2D extends Application   {
             ioe.printStackTrace();
          }
          
+        
        //On configure le controller
       ((MainFrameController)fxmlLoader.getController()).changeState(GameStages.PLACE_SHIPS_ON_PLAYER_BOARD); 
        //====================================================
@@ -49,7 +53,9 @@ public class BattleShip2D extends Application   {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {        
+    public static void main(String[] args) {    
+        
+        
         launch(args);
     }
     

@@ -9,11 +9,12 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 
-<ScrollPane fx:id="root" prefHeight="80" fitToHeight="true" fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1" fx:controller="battleship2D.ui.fxmlController.MessagesController">
+<ScrollPane fx:id="root" prefHeight="80" fitToHeight="true" fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1" fx:controller="battleship2D.ui.fxmlController.MessagesController"
+     style="-fx-background-color : #ff9999">
     
     <content>
         <TextArea text="[Player] Select your ships and place them on your board (mouse button 1 to validate, mouse button 3 to cancel)."
-        editable="false" fx:id="text"></TextArea>
+        editable="false" fx:id="text" style="-fx-background-color : #ff9999"></TextArea>
     </content>
     
 </ScrollPane>
