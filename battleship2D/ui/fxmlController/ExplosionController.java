@@ -66,7 +66,6 @@ public class ExplosionController implements Initializable {
     }    
     /*=========================================================================*/   
      public void construct(double defaultWidth, double defaultHeight){
-       /*this.root.setPrefSize(defaultWidth, defaultHeight);
         
         this.colors = new Paint[181];
         initColors();        
@@ -76,7 +75,7 @@ public class ExplosionController implements Initializable {
         this.canvas = new Canvas(defaultWidth,defaultHeight);        
         initCanvas();
 
-        initAnimationTimer();*/
+        initAnimationTimer();
        
     }    
     /*=========================================================================*/     
@@ -253,7 +252,6 @@ public class ExplosionController implements Initializable {
         this.backgroundImage.fitWidthProperty().bind(this.root.prefWidthProperty());
         this.backgroundImage.fitHeightProperty().bind(this.root.prefHeightProperty());
         
-      //  this.root.getChildren().add(this.backgroundImage);
     }
     /*=========================================================================*/
     /**

@@ -6,9 +6,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="battleship2D.ui.fxmlController.MainFrameController">
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="battleship2D.ui.fxmlController.MainFrameController"
+    style="-fx-background-color : #ffcccc">
     
     <children>
+        
+        <fx:include source="Explosion.fxml" fx:id="explosion"/>
+        <fx:include source="EndGame.fxml" fx:id="endGame"/>
     
         <BorderPane fx:id="borderPane" AnchorPane.topAnchor="0d" AnchorPane.bottomAnchor="0d" AnchorPane.rightAnchor="0d" AnchorPane.leftAnchor="0d">
             
@@ -31,6 +35,8 @@
             </bottom> 
             
        </BorderPane> 
+       
+                
        
        </children>  
                  

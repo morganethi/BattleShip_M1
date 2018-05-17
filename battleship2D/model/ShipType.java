@@ -9,11 +9,11 @@ public enum ShipType {
     /* Members                                                                 */       
     /*=========================================================================*/
     
-    BATTLESHIP("Battleship", "-fx-background-image: url(\"battleship2D/pictures/battleship.jpg\")"),
-    CARRIER("Carrier", "-fx-background-image: url(\"battleship2D/pictures/carrier.jpg\")"),
-    CRUISER("Cruiser", "-fx-background-image: url(\"battleship2D/pictures/cruiser.jpg\")"),
-    DESTROYER("Destroyer", "-fx-background-image: url(\"battleship2D/pictures/destroyer.jpg\")"),
-    SUBMARINE("Submarine", "-fx-background-image: url(\"battleship2D/pictures/submarine.jpeg\")");
+    BATTLESHIP("Cerisier", "-fx-background-image: url(\"battleship2D/pictures/cerisier.png\")"),
+    CARRIER("Margueritte", "-fx-background-image: url(\"battleship2D/pictures/margueritte.png\")"),
+    CRUISER("Tulipe", "-fx-background-image: url(\"battleship2D/pictures/tulipe.png\")"),
+    DESTROYER("Rose", "-fx-background-image: url(\"battleship2D/pictures/rose.png\")"),
+    SUBMARINE("Licorne", "-fx-background-image: url(\"battleship2D/pictures/unicorn.png\")");
 
     /** Rendering either as a color or an image */
     private final String appearance;

@@ -28,11 +28,14 @@ import battleship2D.model.Direction;
 import battleship2D.model.Fleet;
 import battleship2D.model.Ship;
 import battleship2D.ui.Missile;
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class MainFrameController implements Initializable {
     /*=========================================================================*/
@@ -90,6 +93,8 @@ public class MainFrameController implements Initializable {
     /** Missiles sent by boards */
     private  Missile missile;
     
+    private MediaPlayer theme;
+    
     
     
         /** Coordinates linking the (player-selected or computer-selected) target 
@@ -102,19 +107,24 @@ public class MainFrameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        
+        this.theme = new MediaPlayer(new Media((new File("battleship2D/data/song.mp3")).toURI().toString()));
+        theme.setCycleCount(MediaPlayer.INDEFINITE);
+        theme.play();
+        
         playerController.construct("Player", new BoardModel(CellType.OCEAN), true);
         this.shipInsertionController.construct(this.playerController.getBoardModel().getFleet());
         this.computerController.construct("Computer", new BoardModel(CellType.UNKNOWN), 
                 false, Config.level);   
         
         this.missile = new Missile();       
-        //this.explosionController.construct(20,20);      
+        this.explosionController.construct(20,20);      
         
         initRoot();
         initListener();
         initPlayerBoard();        
         initShipSelection(); 
-       // initExplosion();
+        initExplosion();
         
         this.missileSourceX = new SimpleDoubleProperty(0);
         this.missileSourceY = new SimpleDoubleProperty(0);
@@ -328,7 +338,7 @@ public class MainFrameController implements Initializable {
         this.endGame.prefWidthProperty().bind(this.borderPane.widthProperty()); 
         this.endGame.prefHeightProperty().bind(this.borderPane.heightProperty());
         this.endGame.setVisible(false);
-        this.root.getChildren().addAll(this.endGame);
+        //this.root.getChildren().addAll(this.endGame);
     }
     /*=========================================================================*/
     /**
@@ -336,7 +346,7 @@ public class MainFrameController implements Initializable {
      * @see MainFrame()
      */
     private void initExplosion() {
-      //  this.explosion.setVisible(false);
+       this.explosion.setVisible(false);
     }
     /*=========================================================================*/
     
@@ -408,7 +418,6 @@ public class MainFrameController implements Initializable {
         player.prefWidthProperty().bind(root.widthProperty().divide(2));
         computer.prefWidthProperty().bind(root.widthProperty().divide(2));
         this.root.getChildren().addAll(missile.getRoot());
-        //this.root.getChildren().addAll(this.explosion);
     }
     /*=========================================================================*/
     /**
@@ -427,7 +436,7 @@ public class MainFrameController implements Initializable {
      * @see changeState()
      */    
     private void launchMissiles(BoardUIController destBoardUI, BoardUIController sourceBoardUI) { 
-       // this.explosionController.stop();        
+        this.explosionController.stop();        
         CellUI destCellUI = destBoardUI.getMissileDestination();
         CellUI sourceCellUI = sourceBoardUI.getMissileSource();
         
@@ -541,13 +550,17 @@ public class MainFrameController implements Initializable {
     private void showExplosion(BoardUIController boardUI) {
         /* missileDestX and missileDestY represent the center of the hit cell */
         /* To reach the top-left position of the animation, we subtract half its width and height */        
-       /* CellUI cellUI = boardUI.getMissileDestination();
+        CellUI cellUI = boardUI.getMissileDestination();
         if((cellUI != null) && (cellUI.getCellModel().getCellType() == CellType.HIT)) {            
             
-           // this.explosionController.binding(this.missileDestX, this.missileDestY, cellUI);
+           this.explosion.translateXProperty().bind(this.missileDestX.subtract(cellUI.widthProperty().divide(2)));                        
+            this.explosion.translateYProperty().bind(this.missileDestY.subtract(cellUI.heightProperty().divide(2)));                
             
+            this.explosion.prefWidthProperty().bind(cellUI.widthProperty()); // calls explosion.layoutChildren();
+            this.explosion.prefHeightProperty().bind(cellUI.heightProperty()); // calls explosion.layoutChildren();
             
-           // this.explosionController.start();
-        }    */        
+            this.explosionController.start();
+        }           
     }
+    
    }

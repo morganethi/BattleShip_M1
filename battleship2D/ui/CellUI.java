@@ -42,7 +42,7 @@ public class CellUI extends Region {
     private final PropertyChangeSupport pcsListeners = new PropertyChangeSupport(this);   
     
     /** (part of) style. The style is updated with regards to the related cell model. */
-    private final static String stylePrefix = "-fx-border-width: 1; -fx-border-color: dodgerblue; -fx-background-radius: 10em; -fx-background-insets: 1; -fx-background-size:cover; ";
+    private final static String stylePrefix = "-fx-border-width: 1; -fx-border-color: pink; -fx-background-radius: 10em; -fx-background-insets: 1; -fx-background-size:cover; ";
     
     
     /*=========================================================================*/
@@ -237,7 +237,7 @@ public class CellUI extends Region {
         /* Mouse hovering changes the appearance */
         this.highlight = new Region();
         this.highlight.setOpacity(0);        
-        this.highlight.setStyle("-fx-border-width: 3; -fx-border-color: dodgerblue; -fx-background-color: red");        
+        this.highlight.setStyle("-fx-border-width: 3; -fx-border-color: pink; -fx-background-color: magenta");        
         
         /* Animation effect when entering or exiting the cell */
         this.highlightTransition = new FadeTransition(Duration.millis(200), highlight);

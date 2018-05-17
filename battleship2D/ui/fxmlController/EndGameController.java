@@ -116,7 +116,7 @@ public class EndGameController  implements Initializable {
         this.winnerImage.setFocusTraversable(false); 
         this.winnerImage.scaleXProperty().bind(this.scaleRatioProparty);
         this.winnerImage.scaleYProperty().bind(this.scaleRatioProparty);
-        this.root.getChildren().add(this.winnerImage);
+        //this.root.getChildren().add(this.winnerImage);
     }
     /*=========================================================================*/
     /** 
@@ -129,7 +129,7 @@ public class EndGameController  implements Initializable {
         this.winsImage.setFocusTraversable(false);     
         this.winsImage.scaleXProperty().bind(this.scaleRatioProparty);
         this.winsImage.scaleYProperty().bind(this.scaleRatioProparty);
-        this.root.getChildren().add(this.winsImage);
+        //this.root.getChildren().add(this.winsImage);
     }
     /*=========================================================================*/
     /**
