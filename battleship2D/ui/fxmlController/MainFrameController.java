@@ -525,6 +525,7 @@ public class MainFrameController implements Initializable {
             //Cette portion de code utilise encore MainFrame, je n'ai pas encore trouvé comment la remplacer ?
             //Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.borderPane.setVisible(false);
         this.endGameController.start(); 
     }
     /*=========================================================================*/
