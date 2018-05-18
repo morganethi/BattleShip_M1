@@ -9,12 +9,12 @@ public enum CellType{
     /* Members                                                                 */       
     /*=========================================================================*/
     
-    AVAILABLE_LOCATION("Available", "-fx-background-color: aquamarine"), // the cell is available to receive a (piece of) ship,
+    AVAILABLE_LOCATION("Available", "-fx-background-color: magenta"), // the cell is available to receive a (piece of) ship,
     BATTLESHIP(ShipType.BATTLESHIP),
     CARRIER(ShipType.CARRIER),
     CRUISER(ShipType.CRUISER),
     DESTROYER(ShipType.DESTROYER),
-    HIT("Hit", "-fx-background-image: url(\"battleship2D/pictures/ship-explosion.jpg\")"), // a piece of ship has been hit by a foe missile
+    HIT("Hit", "-fx-background-image: url(\"battleship2D/pictures/destroyed.png\")"), // a piece of ship has been hit by a foe missile
     OCEAN("Ocean", "-fx-background-image: url(\"battleship2D/pictures/ocean.gif\")"), // nothing on this tile    
     SUBMARINE(ShipType.SUBMARINE),   
     UNKNOWN("Unknown", "-fx-background-image: url(\"battleship2D/pictures/unknom.gif\")"); // the cell is hidden by some "fog of war"

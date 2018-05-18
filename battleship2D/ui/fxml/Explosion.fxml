@@ -9,7 +9,7 @@
     <children>
       <ImageView fx:id ="backgroundImage">
          <image>
-            <Image url="@../../pictures/ship-explosion.jpg" />
+            <Image url="@../../pictures/destroyed.png" />
          </image>
       </ImageView>
    </children>

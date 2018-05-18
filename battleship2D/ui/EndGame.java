@@ -44,7 +44,7 @@ public class EndGame extends Region {
         this.duration = 80;
         this.scaleRatioProparty = new SimpleDoubleProperty();
         
-        styleProperty().setValue("-fx-background-size:cover; -fx-background-image: url(\"battleship2D/pictures/battleship-endgame.png\")");
+        styleProperty().setValue("-fx-background-size:cover; -fx-background-image: url(\"battleship2D/pictures/win.jpg\")");
         
         if (playerWins) {
             this.winnerImage = new ImageView(getClass().getResource("/battleship2D/pictures/player.png").toExternalForm());

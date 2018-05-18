@@ -337,7 +337,7 @@ public class MainFrameController implements Initializable {
     private void initEndGame() {        
         this.endGame.prefWidthProperty().bind(this.borderPane.widthProperty()); 
         this.endGame.prefHeightProperty().bind(this.borderPane.heightProperty());
-        this.endGame.setVisible(false);
+        this.endGame.setVisible(true);
         //this.root.getChildren().addAll(this.endGame);
     }
     /*=========================================================================*/
@@ -346,7 +346,7 @@ public class MainFrameController implements Initializable {
      * @see MainFrame()
      */
     private void initExplosion() {
-       this.explosion.setVisible(false);
+       this.explosion.setVisible(true);
     }
     /*=========================================================================*/
     
@@ -564,4 +564,8 @@ public class MainFrameController implements Initializable {
         }           
     }
     
+    @FXML
+    private void skipEndGame(){
+        runEndGame(true);
+    }
    }

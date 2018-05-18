@@ -18,6 +18,7 @@
             
             <top>
                 <fx:include source="Title.fxml" fx:id="titre"/>
+                <Button onAction="#skipEndGame">End Game</Button>
             </top>
             
             <center>

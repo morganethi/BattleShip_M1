@@ -51,6 +51,8 @@ public class EndGameController  implements Initializable {
     }    
     /*=========================================================================*/
     public void construct(boolean playerWins){
+        
+        this.root.setStyle("-fx-background-size:cover; -fx-background-image: url(\"battleship2D/pictures/win.jpg\")");
         this.duration = 80;
         this.scaleRatioProparty = new SimpleDoubleProperty();
         
