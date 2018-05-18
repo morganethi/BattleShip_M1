@@ -29,8 +29,6 @@ import battleship2D.model.Fleet;
 import battleship2D.model.Ship;
 import battleship2D.ui.Missile;
 import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -106,9 +104,8 @@ public class MainFrameController implements Initializable {
     /*=========================================================================*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
-        this.theme = new MediaPlayer(new Media((new File("battleship2D/data/Spice Girls - Wannabe (Haschak Sisters Cover).mp3")).toURI().toString()));
+  
+        this.theme = new MediaPlayer(new Media((new File("src/battleship2D/data/song.mp3")).toURI().toString()));
         theme.setCycleCount(MediaPlayer.INDEFINITE);
         theme.play();
         
@@ -256,10 +253,10 @@ public class MainFrameController implements Initializable {
         Ship hitShip = fleet.findShipFromType(shipType);        
         
         if (hitShip != null) {           
-            this.msgController.append("[" + boardUI.getName() + "] A ship has been hit!\n");
+            this.msgController.append("[" + boardUI.getName() + "] A flower just got old !\n");
             
             if (fleet.isLastHitShipDestroyed()) {
-                this.msgController.append("[" + boardUI.getName() + "] " + hitShip.getDescription() + " has been destroyed!!\n");
+                this.msgController.append("[" + boardUI.getName() + "] " + hitShip.getDescription() + " withered away !!\n");
                 
                 /* If the destroyed ship was part of the player's fleet, notifies the computer side */
                 if (boardUI == this.playerController) {
@@ -267,7 +264,7 @@ public class MainFrameController implements Initializable {
                 }
                 
                 if (fleet.isFleetDestroyed()) {
-                    this.msgController.append("[" + boardUI.getName() + "] " + "The whole fleet has been destroyed!!!\n");
+                    this.msgController.append("[" + boardUI.getName() + "] " + "All the flowers died!!!\n");
                     if (boardUI == this.playerController) {
                         runEndGame(false);
                     }
@@ -550,18 +547,20 @@ public class MainFrameController implements Initializable {
      */
     private void showExplosion(BoardUIController boardUI) {
         /* missileDestX and missileDestY represent the center of the hit cell */
-        /* To reach the top-left position of the animation, we subtract half its width and height */        
+ /* To reach the top-left position of the animation, we subtract half its width and height */
         CellUI cellUI = boardUI.getMissileDestination();
-        if((cellUI != null) && (cellUI.getCellModel().getCellType() == CellType.HIT)) {            
-            
-           this.explosion.translateXProperty().bind(this.missileDestX.subtract(cellUI.widthProperty().divide(2)));                        
-            this.explosion.translateYProperty().bind(this.missileDestY.subtract(cellUI.heightProperty().divide(2)));                
-            
+        if ((cellUI != null) && (cellUI.getCellModel().getCellType() == CellType.HIT)) {
+            this.explosion.translateXProperty().bind(this.missileDestX.subtract(cellUI.widthProperty().divide(2)));
+            this.explosion.translateYProperty().bind(this.missileDestY.subtract(cellUI.heightProperty().divide(2)));
+
             this.explosion.prefWidthProperty().bind(cellUI.widthProperty()); // calls explosion.layoutChildren();
             this.explosion.prefHeightProperty().bind(cellUI.heightProperty()); // calls explosion.layoutChildren();
-            
+
+            MediaPlayer hurt = new MediaPlayer(new Media((new File("src/battleship2D/data/hurt.mp3")).toURI().toString()));
+            hurt.play();
+
             this.explosionController.start();
-        }           
+        }
     }
     
     @FXML

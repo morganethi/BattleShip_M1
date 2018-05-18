@@ -10,13 +10,13 @@ public enum CellType{
     /*=========================================================================*/
     
     AVAILABLE_LOCATION("Available", "-fx-background-color: magenta"), // the cell is available to receive a (piece of) ship,
-    BATTLESHIP(ShipType.BATTLESHIP),
-    CARRIER(ShipType.CARRIER),
-    CRUISER(ShipType.CRUISER),
-    DESTROYER(ShipType.DESTROYER),
+    BATTLESHIP(ShipType.MARGUERITTE),
+    CARRIER(ShipType.CERISIER),
+    CRUISER(ShipType.TULIPE),
+    DESTROYER(ShipType.ROSE),
     HIT("Hit", "-fx-background-image: url(\"battleship2D/pictures/destroyed.png\")"), // a piece of ship has been hit by a foe missile
     OCEAN("Ocean", "-fx-background-image: url(\"battleship2D/pictures/ocean.gif\")"), // nothing on this tile    
-    SUBMARINE(ShipType.SUBMARINE),   
+    SUBMARINE(ShipType.UNICORN),   
     UNKNOWN("Unknown", "-fx-background-image: url(\"battleship2D/pictures/unknom.gif\")"); // the cell is hidden by some "fog of war"
 
     /** Rendering either as a color or an image */
@@ -48,15 +48,15 @@ public enum CellType{
     public static ShipType cellTypeToShipType(CellType cellType) {
         switch (cellType) {
             case BATTLESHIP:
-                return ShipType.BATTLESHIP;
+                return ShipType.MARGUERITTE;
             case CARRIER:
-                return ShipType.CARRIER;
+                return ShipType.CERISIER;
             case CRUISER:
-                return ShipType.CRUISER;
+                return ShipType.TULIPE;
             case DESTROYER:
-                return ShipType.DESTROYER;
+                return ShipType.ROSE;
             case SUBMARINE:
-                return ShipType.SUBMARINE;
+                return ShipType.UNICORN;
             default:
                 return null;
         }
@@ -69,15 +69,15 @@ public enum CellType{
      */
     public static CellType shipTypeToCellType(ShipType shipType) {
         switch (shipType) {
-            case BATTLESHIP:
+            case MARGUERITTE:
                 return CellType.BATTLESHIP;
-            case CARRIER:
+            case CERISIER:
                 return CellType.CARRIER;
-            case CRUISER:
+            case TULIPE:
                 return CellType.CRUISER;
-            case DESTROYER:
+            case ROSE:
                 return CellType.DESTROYER;
-            case SUBMARINE:
+            case UNICORN:
                 return CellType.SUBMARINE;
             default:
                 return null;

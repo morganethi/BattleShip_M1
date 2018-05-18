@@ -11,13 +11,13 @@
     <children>
         
         <VBox fx:id="shipChoiceBox" alignment="CENTER">
-            <ChoiceBox fx:id="choiceBox" value="CARRIER (5)">
+            <ChoiceBox fx:id="choiceBox" value="MARGUERITTE (5)">
                 
             </ChoiceBox>
         </VBox>
         
         <VBox fx:id="buttonsBox">
-            <Button fx:id="doneButton" text="done">
+            <Button fx:id="doneButton" text="done" onAction="#doneAction">
                 
             </Button>
         </VBox>

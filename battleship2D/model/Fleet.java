@@ -120,11 +120,11 @@ public class Fleet {
      * @see Fleet()
      */
     private void initShips() {         
-        this.ships.add(new Ship(ShipType.CARRIER));
-        this.ships.add(new Ship(ShipType.BATTLESHIP));
-        this.ships.add(new Ship(ShipType.CRUISER));
-        this.ships.add(new Ship(ShipType.DESTROYER));
-        this.ships.add(new Ship(ShipType.SUBMARINE));
+        this.ships.add(new Ship(ShipType.MARGUERITTE));
+        this.ships.add(new Ship(ShipType.CERISIER));
+        this.ships.add(new Ship(ShipType.TULIPE));
+        this.ships.add(new Ship(ShipType.ROSE));
+        this.ships.add(new Ship(ShipType.UNICORN));
     }
     
     /**

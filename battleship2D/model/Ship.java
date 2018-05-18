@@ -60,19 +60,19 @@ public class Ship {
      */
     private void initShip() {
         switch (this.shipType) {
-            case CARRIER:
+            case MARGUERITTE:
                 this.size = 5;
                 break;
-            case BATTLESHIP:
+            case CERISIER:
                 this.size = 4;
                 break;
-            case CRUISER:
+            case TULIPE:
                 this.size = 3;
                 break;
-            case DESTROYER:
+            case ROSE:
                 this.size = 2;
                 break;
-            case SUBMARINE:
+            case UNICORN:
                 this.size = 1;
                 break;
             default:

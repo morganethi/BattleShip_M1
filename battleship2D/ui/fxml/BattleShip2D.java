@@ -2,15 +2,12 @@ package battleship2D.ui.fxml;
 
 import battleship2D.ui.GameStages;
 import battleship2D.ui.fxmlController.MainFrameController;
-import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 

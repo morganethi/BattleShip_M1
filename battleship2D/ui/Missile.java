@@ -107,11 +107,10 @@ public class Missile {
      */
     private void init() {
         this.root = new Group();  
-
-	/*Sphere sphere = new Sphere(10);
-	initSphere(sphere);*/
         
         ImageView sphere = new ImageView("battleship2D/pictures/coeur.png");
+        sphere.setFitHeight(20);
+        sphere.setFitWidth(20);
         this.root.getChildren().addAll(sphere);
         
 	ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(1));       

@@ -43,9 +43,10 @@ public class ShipInsertionController implements Initializable {
             this.choiceBox.getItems().add(ship.getDescription());            
         }
          
-        doneButton.setOnAction(e -> {
-            this.pcsListeners.firePropertyChange("shipInsertionAreAllShipsOnBoard", false, true);            
-        });
+    }
+    /*=========================================================================*/ 
+    public void doneAction(){
+        this.pcsListeners.firePropertyChange("shipInsertionAreAllShipsOnBoard", false, true);
     }
     /*=========================================================================*/    
     public void hide(){
